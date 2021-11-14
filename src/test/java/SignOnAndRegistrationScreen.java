@@ -13,17 +13,13 @@ public class SignOnAndRegistrationScreen extends BasePage {
     private WebDriver driver;
     private static WebDriverWait wait;
 
-    public SignOnAndRegistrationScreen(){
-
-        this.driver = DriverSingleton.getChromeDriverInstance();
-    }
     public SignOnAndRegistrationScreen(WebDriver driver){
 
         this.driver = driver;
     }
     public void SignOnLoginButtonAndClick(){
-        clickElement(By.className("seperator-link"));
-      // driver.findElement(By.className("seperator-link")).click();
+        //clickElement(By.className("seperator-link"));
+        driver.findElement(By.className("seperator-link")).click();
     }
     public void registrationButtonAndClick(){
 

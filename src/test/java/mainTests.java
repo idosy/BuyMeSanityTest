@@ -14,6 +14,7 @@ mainTests {
     private static WebDriver driver;
     private static WebDriverWait wait;
     private static SignOnAndRegistrationScreen loginPage;
+    private static HomeScreen homeScreen;
 
     @BeforeClass
     public static void runOnceBeforeClass() {
@@ -24,39 +25,48 @@ mainTests {
         driver.get("https://buyme.co.il");
     }
 
+//    @Test
+//    public void test01_SignOnLoginButtonAndClick() {
+//
+//        loginPage = new SignOnAndRegistrationScreen(driver);
+//        loginPage.SignOnLoginButtonAndClick();
+//    }
+//
+//    @Test
+//    public void test02_RegistrationButtonAndClick() {
+//        loginPage.registrationButtonAndClick();
+//    }
+//
+//   @Test
+//    public void test03_FillRegistrationDetails() {
+//       loginPage.inputFirstName();
+//       loginPage.inputEmailAddress();
+//       loginPage.inputPassword();
+//       loginPage.inputValidationPassword();
+//    }
+//
+//    @Test
+//    public void test04_assertAllFields() {
+//
+//        loginPage.assertAllFileds();
+//
+//    }
+//
+//    @Test
+//    public void test05_clickSubmitButton() {
+//        loginPage.clickSubmitButton();
+//    }
+
+@Test
+    public void test06_pickPrice() {
+    homeScreen.selectPrice();
+}
     @Test
-    public void test01_SignOnLoginButtonAndClick() {
-
-        loginPage = new SignOnAndRegistrationScreen(driver);
-        loginPage.SignOnLoginButtonAndClick();
-    }
-
-    @Test
-    public void test02_RegistrationButtonAndClick() {
-        loginPage.registrationButtonAndClick();
-    }
-
-   @Test
-    public void test03_FillRegistrationDetails() {
-       loginPage.inputFirstName();
-       loginPage.inputEmailAddress();
-       loginPage.inputPassword();
-       loginPage.inputValidationPassword();
-    }
-
-    @Test
-    public void test04_assertAllFields() {
-
-        loginPage.assertAllFileds();
-
-    }
-
-    @Test
-    public void test05_wclickSubmitButton() {
-        loginPage.clickSubmitButton();
-    }
+    public void test07_pickReigon(){
+        homeScreen.selectRegion();
 
 
+}
 //    @AfterClass
 //    public static void tearDown() {
 //        driver.quit();
