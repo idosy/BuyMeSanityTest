@@ -11,9 +11,10 @@ public class
 mainTests {
     private static WebDriver driver;
     private static WebDriverWait wait;
-    private static SignOnAndRegistrationScreen loginPage;
-    private static HomeScreen homeScreen;
-    private static BusinessScreen businessScreen;
+    private static SignOnAndRegistrationPage loginPage;
+    private static HomePage homePage;
+    private static BusinessPage businessPage;
+    private static SenderAndReceiverInfoPage infoPage;
 
     @BeforeClass
     public static void runOnceBeforeClass() {
@@ -23,7 +24,7 @@ mainTests {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         driver.get("https://buyme.co.il");
     }
-
+//SignOn And Registration Screen tests
 //    @Test
 //    public void test01_SignOnLoginButtonAndClick() {
 //
@@ -56,33 +57,88 @@ mainTests {
 //        loginPage.clickSubmitButton();
 //    }
 
+
+//Home Screen tests
     @Test
     public void test06_pickPrice() {
-    homeScreen.selectPrice();
+        //this is for testes while logged in
+        homePage = new HomePage(driver);
+//        loginPage.SignOnLoginButtonAndClick();
+//        loginPage.doLogin();
+        homePage.selectPrice();
 }
     @Test
     public void test07_pickRegion() {
-        homeScreen.selectRegion();
+        homePage.selectRegion();
     }
     @Test
-        public void test08_pickCategory() {
-            homeScreen.selectCategory();
+    public void test08_pickCategory() {
+        homePage.selectCategory();
         }
     @Test
     public void test09_pressFindMy() {
-        homeScreen.pressFindMy();
+        homePage.pressFindMy();
     }
 
-    @Test void test10_assertUrlBusinessScreen(){
-        businessScreen.assertUrl();
+//Pick business Screen tests
+    @Test
+    public void test10_assertUrlBusinessScreen(){
+        businessPage.assertUrl();
     }
-    @Test void test11_pickBusiness(){
-        businessScreen.pickBusiness();
+    @Test
+    public void test11_pickBusiness(){
+        businessPage.pickBusiness();
     }
-    @Test void test12_enterPriceAndClick(){
-        businessScreen.enterPrice();
-        businessScreen.clickEnterPriceButton();
+    @Test
+    public void test12_enterPriceAndClick(){
+        businessPage.enterPrice();
+        businessPage.clickEnterPriceButton();
     }
+    @Test
+    public void test13_someoneElseButtonAndClick(){
+        infoPage = new SenderAndReceiverInfoPage(driver);
+        infoPage.someoneElseButtonAndClick();
+    }
+    @Test
+    public void test14_inputSenderFirstName(){
+        infoPage.inputFirstName();
+    }
+    @Test
+    public void test15_selectEvent(){
+        infoPage.selectEvent();
+    }
+    @Test
+    public void test16_inputBlessing(){
+        infoPage.inputBlessing();
+    }
+    @Test
+    public void test17_uploadFile(){
+        infoPage.uploadFile();
+    }
+    @Test
+    public void test18_submitButtonAndClick(){
+        infoPage.submitButtonAndClick();
+    }
+    @Test
+    public void test19_checkSendByEmail(){
+        infoPage.checkSendByEmail();
+    }
+    @Test
+    public void test20_enterReceiverMail(){
+        infoPage.enterReceiverMail();
+    }
+
+    @Test
+    public void test21_enterSenderName(){
+        infoPage.enterSenderName();
+    }
+
+    @Test
+    public void test22_paymentButtonAndClickl(){
+        infoPage.paymentButtonAndClick();
+    }
+
+
 
 
 

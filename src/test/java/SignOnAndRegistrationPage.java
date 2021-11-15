@@ -8,14 +8,13 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.Collections;
 
-public class SignOnAndRegistrationScreen extends BasePage {
+public class SignOnAndRegistrationPage extends BasePage {
     private WebDriver driver;
     private static WebDriverWait wait;
 
-    public SignOnAndRegistrationScreen(WebDriver driver){
+    public SignOnAndRegistrationPage(WebDriver driver){this.driver = driver;}
 
-        this.driver = driver;
-    }
+
     public void SignOnLoginButtonAndClick(){
         //clickElement(By.className("seperator-link"));
         driver.findElement(By.className("seperator-link")).click();
@@ -27,9 +26,7 @@ public class SignOnAndRegistrationScreen extends BasePage {
 
     }
     public void inputFirstName(){
-      //  sendKeysToElement(By.id("ember1482"),inputFirstName);
         driver.findElement(By.id("ember1482")).sendKeys(inputFirstName);
-
     }
     public void inputEmailAddress(){
         driver.findElement(By.id("ember1485")).sendKeys(inputEmailAddress);
@@ -56,5 +53,12 @@ public class SignOnAndRegistrationScreen extends BasePage {
     public void clickSubmitButton (){
         driver.findElement(By.className("label")).click();
     }
+
+    public void doLogin() {
+        driver.findElement(By.id("ember1489")).sendKeys(inputEmailAddress);
+        driver.findElement(By.id("ember1492")).sendKeys(inputPassword);
+        driver.findElement(By.id("ember1497")).click();
+    }
+
 
 }

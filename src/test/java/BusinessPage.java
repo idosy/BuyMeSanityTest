@@ -4,10 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class BusinessScreen extends BasePage{
+public class BusinessPage extends BasePage{
 
     private WebDriver driver;
     private static WebDriverWait wait;
+
+    public BusinessPage(WebDriver driver){this.driver = driver;}
 
     public void assertUrl()
     {
