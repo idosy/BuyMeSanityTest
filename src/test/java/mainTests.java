@@ -1,7 +1,5 @@
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +13,7 @@ mainTests {
     private static WebDriverWait wait;
     private static SignOnAndRegistrationScreen loginPage;
     private static HomeScreen homeScreen;
+    private static BusinessScreen businessScreen;
 
     @BeforeClass
     public static void runOnceBeforeClass() {
@@ -73,6 +72,19 @@ mainTests {
     public void test09_pressFindMy() {
         homeScreen.pressFindMy();
     }
+
+    @Test void test10_assertUrlBusinessScreen(){
+        businessScreen.assertUrl();
+    }
+    @Test void test11_pickBusiness(){
+        businessScreen.pickBusiness();
+    }
+    @Test void test12_enterPriceAndClick(){
+        businessScreen.enterPrice();
+        businessScreen.clickEnterPriceButton();
+    }
+
+
 
 //    @AfterClass
 //    public static void tearDown() {
