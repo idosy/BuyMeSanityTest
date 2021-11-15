@@ -57,16 +57,23 @@ mainTests {
 //        loginPage.clickSubmitButton();
 //    }
 
-@Test
+    @Test
     public void test06_pickPrice() {
     homeScreen.selectPrice();
 }
     @Test
-    public void test07_pickReigon(){
+    public void test07_pickRegion() {
         homeScreen.selectRegion();
+    }
+    @Test
+        public void test08_pickCategory() {
+            homeScreen.selectCategory();
+        }
+    @Test
+    public void test09_pressFindMy() {
+        homeScreen.pressFindMy();
+    }
 
-
-}
 //    @AfterClass
 //    public static void tearDown() {
 //        driver.quit();

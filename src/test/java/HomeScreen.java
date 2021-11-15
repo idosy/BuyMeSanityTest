@@ -9,11 +9,18 @@ public class HomeScreen extends BasePage{
     private static WebDriverWait wait;
 
     public void selectPrice() {
-        Select priceDropDown = new Select(driver.findElement(By.id("ember1012_chosen")));
+        Select priceDropDown = new Select(driver.findElement(By.id("ember1012")));
     }
     public void selectRegion() {
-        Select regionDropDown = new Select(driver.findElement(By.id("ember1027_chosen")));
+        Select regionDropDown = new Select(driver.findElement(By.id("ember1027")));
         regionDropDown.selectByIndex(1);
+    }
+    public void selectCategory() {
+        Select regionDropDown = new Select(driver.findElement(By.id("ember1037")));
+        regionDropDown.selectByIndex(1);
+    }
+    public void pressFindMy() {
+        driver.findElement(By.className("ember1072")).click();
     }
 
 }
