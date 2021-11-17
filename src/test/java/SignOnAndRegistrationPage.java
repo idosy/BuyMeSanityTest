@@ -16,7 +16,7 @@ public class SignOnAndRegistrationPage extends BasePage {
 
 
     public void SignOnLoginButtonAndClick(){
-        //clickElement(By.className("seperator-link"));
+       // clickElement(By.className("seperator-link"));
         driver.findElement(By.className("seperator-link")).click();
     }
     public void registrationButtonAndClick(){
@@ -26,22 +26,29 @@ public class SignOnAndRegistrationPage extends BasePage {
 
     }
     public void inputFirstName(){
+       // sendKeysToElement(By.id("ember1482"),inputFirstName);
         driver.findElement(By.id("ember1482")).sendKeys(inputFirstName);
     }
     public void inputEmailAddress(){
+       // sendKeysToElement(By.id("ember1485"),inputEmailAddress);
         driver.findElement(By.id("ember1485")).sendKeys(inputEmailAddress);
     }
     public void inputPassword(){
-        driver.findElement(By.id("valPass")).sendKeys(inputPassword);
+       // sendKeysToElement(By.id("valPass"),inputPassword);
+       driver.findElement(By.id("valPass")).sendKeys(inputPassword);
     }
     public void inputValidationPassword(){
-       driver.findElement(By.id("ember1490")).sendKeys(inputPassword);
+       // sendKeysToElement(By.id("ember1490"),inputPassword);
+        driver.findElement(By.id("ember1490")).sendKeys(inputPassword);
     }
-    public void assertAllFileds(){
+    public void assertAllFields(){
+        //assertElement(By.id("ember1482"),"value",inputFirstName);
         WebElement firstName = driver.findElement(By.id("ember1482"));
         Assert.assertEquals(firstName.getAttribute("value"),inputFirstName);
+ //       assertElement(By.id("ember1485"),"value",inputEmailAddress);
         WebElement emailAddress = driver.findElement(By.id("ember1485"));
         Assert.assertEquals(emailAddress.getAttribute("value"),inputEmailAddress);
+
         //tests in remark because password value is NULL
 //        WebElement inPassword = driver.findElement(By.id("valPass"));
 //        Assert.assertEquals(inPassword.getAttribute("value"),inputPassword);
@@ -51,13 +58,9 @@ public class SignOnAndRegistrationPage extends BasePage {
 
     }
     public void clickSubmitButton (){
-        driver.findElement(By.className("label")).click();
-    }
 
-    public void doLogin() {
-        driver.findElement(By.id("ember1489")).sendKeys(inputEmailAddress);
-        driver.findElement(By.id("ember1492")).sendKeys(inputPassword);
-        driver.findElement(By.id("ember1497")).click();
+       // clickElement(By.className("label"));
+       driver.findElement(By.className("label")).click();
     }
 
 

@@ -16,7 +16,7 @@ public class HomePage extends BasePage{
     public void selectPrice() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        Select priceDropDown = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ember1012"))));
+        Select priceDropDown = new Select(wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("chosen-results"))));
         priceDropDown.selectByIndex(1);
     }
     public void selectRegion() {
@@ -31,4 +31,12 @@ public class HomePage extends BasePage{
         driver.findElement(By.className("ember1072")).click();
     }
 
+    //use this method for 'once login' tests
+    public void doLogin() {
+
+        driver.findElement(By.className("seperator-link")).click();
+        driver.findElement(By.id("ember1450")).sendKeys(inputEmailAddress);
+        driver.findElement(By.id("ember1454")).sendKeys(inputPassword);
+        driver.findElement(By.id("ember1471")).click();
+    }
 }

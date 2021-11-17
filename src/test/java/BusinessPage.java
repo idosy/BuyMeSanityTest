@@ -17,13 +17,13 @@ public class BusinessPage extends BasePage{
 
     }
     public void pickBusiness(){
-        driver.findElement(By.id("ember2551")).click();
+        driver.findElement(By.id("ember1366")).click();
     }
     public void enterPrice(){
-        driver.findElement(By.id("ember2582")).sendKeys(enterPrice);
+        driver.findElement(By.id("ember1479")).sendKeys(enterPrice);
     }
     public void clickEnterPriceButton(){
-        driver.findElement(By.id("ember2584")).click();
+        driver.findElement(By.id("ember1487")).click();
     }
 
 
