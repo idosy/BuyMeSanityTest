@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
     <browserType>Chrome</browserType>
-    <Url></Url>
+    <Url>https://buyme.co.il</Url>
+    <Url>https://buyme.co.il/money/17573200?price=200</Url>
 </config>

@@ -1,3 +1,4 @@
+import io.netty.handler.codec.compression.Lz4XXHash32;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -6,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class
-mainTests {
+mainTests extends DriverSingleton {
     private static WebDriver driver;
     private static SignOnAndRegistrationPage loginPage;
     private static HomePage homePage;
@@ -17,9 +18,7 @@ mainTests {
     public static void runOnceBeforeClass() throws Exception {
         driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://buyme.co.il");
-      // driver.get("https://buyme.co.il/search?budget=1&category=337&region=13");
-      //   driver.get("https://buyme.co.il/money/17573200?price=200");
+        driver.get(XmlReader.getData("Url"));
 
     }
 //SignOn And Registration Screen tests
@@ -58,7 +57,7 @@ mainTests {
   public void test06_pickPrice() throws Exception {
 //
       homePage = new HomePage(driver);
-      //this is for method is for existing user
+      //this method is for existing user
       homePage.doLogin();
       homePage.selectPrice();
 }
@@ -77,8 +76,9 @@ mainTests {
 
 //Pick business Screen tests
     @Test
-    public void test10_assertUrlBusinessScreen(){
+    public void test10_assertUrlBusinessScreen() throws Exception {
         businessPage = new BusinessPage(driver);
+        driver.get(XmlReader.getData("Url",1));
         businessPage.assertUrl();
     }
     @Test

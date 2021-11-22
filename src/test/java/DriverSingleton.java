@@ -19,7 +19,7 @@ public class DriverSingleton {
 
     public static WebDriver getDriverInstance() throws Exception {
         if(driver == null){
-            String type = getData("browserType");
+            String type = XmlReader.getData("browserType");
             if(type.equals("Chrome")){
                 System.setProperty("webdriver.chrome.driver", "C:\\Users\\97252\\Desktop\\USA\\QA\\auto\\chromedriver_win32\\ChromeDriver.exe");
                 driver = new ChromeDriver();
@@ -31,15 +31,6 @@ public class DriverSingleton {
             }
         return driver;
     }
-    public static String getData (String keyName) throws Exception{
-        ClassLoader classLoader = DriverSingleton.class.getClassLoader();
-        String xmlFilePath = String.valueOf(new File(classLoader.getResource("data.xml").getFile()));
-        File fXmlFile = new File(xmlFilePath);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(fXmlFile);
-        doc.getDocumentElement().normalize();
-        return doc.getElementsByTagName(keyName).item(0).getTextContent();
-    }
+
 
 }
