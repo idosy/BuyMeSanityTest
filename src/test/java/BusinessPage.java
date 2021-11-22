@@ -16,14 +16,14 @@ public class BusinessPage extends BasePage{
         Assert.assertEquals(driver.getCurrentUrl(),pickBusinessUrl);
 
     }
-    public void pickBusiness(){
-        driver.findElement(By.id("ember1366")).click();
+    public void pickBusiness() throws Exception {
+        clickElement(By.id("ember1366"));
     }
-    public void enterPrice(){
-        driver.findElement(By.id("ember1479")).sendKeys(enterPrice);
+    public void enterPrice() throws Exception {
+        sendKeysToElement(By.id("ember1479"),enterPrice);
     }
-    public void clickEnterPriceButton(){
-        driver.findElement(By.id("ember1487")).click();
+    public void clickEnterPriceButton() throws Exception {
+       clickElement(By.id("ember1487"));
     }
 
 

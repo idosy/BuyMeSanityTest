@@ -15,52 +15,49 @@ public class SenderAndReceiverInfoPage extends BasePage {
         this.driver = driver;
     }
 
-    public void someoneElseButtonAndClick() {
+    public void someoneElseButtonAndClick() throws Exception {
 
-        driver.findElement(By.id("ember1236")).click();
+       clickElement(By.id("ember1236"));
     }
 
-    public void inputFirstName() {
-        driver.findElement(By.id("ember1246")).sendKeys(inputFirstName);
+    public void inputFirstName() throws Exception {
+        sendKeysToElement(By.id("ember1246"), inputFirstName);
     }
 
-    public void selectEvent() {
+    public void selectEvent() throws Exception {
 
-        driver.findElement(By.id("ember1524")).click();
-//        Select eventDropDown = new Select(driver.findElement(By.id("ember1524")));
-        Select eventDropDown = new Select(driver.findElement(By.cssSelector("div[class='input-label-wrapper']")));
-        eventDropDown.selectByIndex(2);
+        clickElement(By.cssSelector("div[data-ember-action='1558']"));
+        clickElement(By.id("ember1560"));
     }
 
-    public void inputBlessing() {
-        driver.findElement(By.cssSelector("textarea[data-parsley-group='voucher-greeting']")).clear();
-        driver.findElement(By.cssSelector("textarea[data-parsley-group='voucher-greeting']")).sendKeys("your Welcome");
+    public void inputBlessing() throws Exception {
+        clearTextInElement(By.cssSelector("textarea[data-parsley-group='voucher-greeting']"));
+        sendKeysToElement(By.cssSelector("textarea[data-parsley-group='voucher-greeting']"),"your Welcome");
     }
 
-    public void uploadFile() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ember1261"))).sendKeys("C:\\Pictures\\myPicture.jpg");
+    public void uploadFile() throws Exception {
+        sendKeysToElement(By.cssSelector("input[type='file']"), "C:\\Picture\\myPicture.jpg");
     }
 
-    public void submitButtonAndClick() {
-        //need to find the right locator
-        driver.findElement(By.id("ember1269")).click();
+    public void submitButtonAndClick() throws Exception {
+
+        clickElement(By.cssSelector("button[type='submit']"));
     }
 
-    public void checkSendByEmail() {
-        //need to find the right locator
-        driver.findElement(By.cssSelector("path[d='M35,69.5c9.5,0,18.2-3.9,24.4-10.1S69.5,44.5,69.5,35s-3.9-18.2-10.1-24.4S44.5,0.5,35,0.5\n" +
-                "            S16.8,4.4,10.6,10.6S0.5,25.5,0.5,35s3.9,18.2,10.1,24.4S25.5,69.5,35,69.5z']")).click();
+    public void checkSendByEmail() throws Exception {
+        //clickElement(By.cssSelector("path [class='icon']"));
+        clickElement(By.cssSelector("path[d='M35,69.5c9.5,0,18.2-3.9,24.4-10.1S69.5,44.5,69.5,35s-3.9-18.2-10.1-24.4S44.5,0.5,35,0.5\n" +
+                "            S16.8,4.4,10.6,10.6S0.5,25.5,0.5,35s3.9,18.2,10.1,24.4S25.5,69.5,35,69.5z']"));
     }
 
-    public void enterReceiverMail() {
-        driver.findElement(By.cssSelector("input[id='email']")).sendKeys(inputEmailAddress);
+    public void enterReceiverMail() throws Exception {
+        sendKeysToElement(By.cssSelector("input[type='email']"),inputEmailAddress);
     }
-    public void enterSenderName() {
-        driver.findElement(By.id("ember2043")).sendKeys(inputFirstName);
+    public void enterSenderName() throws Exception {
+        sendKeysToElement(By.cssSelector("input[maxlength='25']"),inputFirstName);
     }
-    public void paymentButtonAndClick() {
-        driver.findElement(By.id("ember2142")).click();
+    public void paymentButtonAndClick() throws Exception {
+        clickElement(By.cssSelector("button [gtm='המשך לתשלום']"));
     }
 
 

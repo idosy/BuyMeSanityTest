@@ -6,9 +6,6 @@ public class constants {
         public final String inputFirstName = "Ido";
         public final String inputEmailAddress = "automationTest@gmail.com";
         public final String inputPassword = "Password1234!";
-      //Locators
-        // public final String loginButton = "By.className("seperator-link")";
-        // public final String = "By.id("ember1482")";
 
     //pickBusinessPage constants
         //variables
