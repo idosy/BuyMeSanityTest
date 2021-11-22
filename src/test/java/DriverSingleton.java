@@ -2,6 +2,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -11,9 +12,6 @@ import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
 
 public class DriverSingleton {
     private static WebDriver driver;
@@ -33,8 +31,8 @@ public class DriverSingleton {
             }
         return driver;
     }
-    private static String getData (String keyName) throws Exception{
-        ClassLoader classLoader = XMLBasedTest.class.getClassLoader();
+    public static String getData (String keyName) throws Exception{
+        ClassLoader classLoader = DriverSingleton.class.getClassLoader();
         String xmlFilePath = String.valueOf(new File(classLoader.getResource("data.xml").getFile()));
         File fXmlFile = new File(xmlFilePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
