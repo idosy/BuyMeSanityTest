@@ -1,9 +1,19 @@
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class
@@ -14,30 +24,39 @@ mainTests extends DriverSingleton {
     private static BusinessPage businessPage;
     private static SenderAndReceiverInfoPage infoPage;
 
+    // create the report object, path and name
+    private static ExtentReports extent= new ExtentReports();
+    private static ExtentTest test = extent.createTest("BuyMeSanityTests", "Description");
+
 
     @BeforeClass
     public static void runOnceBeforeClass() throws Exception {
+
+
         driver = DriverSingleton.getDriverInstance();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(XmlReader.getData("Url"));
 
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(XmlReader.getData("reportPath"));
+        extent.attachReporter(htmlReporter);
+        test.log(Status.INFO, "before test method");
 
 
     }
-////SignOn And Registration Screen tests
-//
-//    @Test
-//    public void test01_SignOnLoginButtonAndClick() throws Exception {
-//
-//        loginPage = new SignOnAndRegistrationPage(driver);
-//        loginPage.SignOnLoginButtonAndClick();
-//    }
-//
-//    @Test
-//    public void test02_RegistrationButtonAndClick() throws Exception {
-//        loginPage.registrationButtonAndClick();
-//    }
-//
+//SignOn And Registration Screen tests
+
+    @Test
+    public void test01_SignOnLoginButtonAndClick() throws Exception {
+
+        loginPage = new SignOnAndRegistrationPage(driver);
+        loginPage.SignOnLoginButtonAndClick();
+    }
+
+    @Test
+    public void test02_RegistrationButtonAndClick() throws Exception {
+        loginPage.registrationButtonAndClick();
+    }
+
 //   @Test
 //    public void test03_FillRegistrationDetails() throws Exception {
 //       loginPage.inputFirstName();
@@ -56,21 +75,21 @@ mainTests extends DriverSingleton {
 
 
 //Home Screen tests
-  @Test
-  public void test06_pickPrice() throws Exception {
-      homePage = new HomePage(driver);
-      //this method is for existing user
-      homePage.doLogin();
-      homePage.selectPrice();
-}
-    @Test
-    public void test07_pickRegion() throws Exception {homePage.selectRegion();}
-
-    @Test
-    public void test08_pickCategory() throws Exception {homePage.selectCategory();}
-
-    @Test
-    public void test09_pressFindMy() throws Exception{homePage.pressFindMy();}
+//  @Test
+//  public void test06_pickPrice() throws Exception {
+//      homePage = new HomePage(driver);
+//      //this method is for existing user
+//      homePage.doLogin();
+//      homePage.selectPrice();
+//}
+//    @Test
+//    public void test07_pickRegion() throws Exception {homePage.selectRegion();}
+//
+//    @Test
+//    public void test08_pickCategory() throws Exception {homePage.selectCategory();}
+//
+//    @Test
+//    public void test09_pressFindMy() throws Exception{homePage.pressFindMy();}
 
 ////Pick business Screen tests
 //    @Test
@@ -136,8 +155,14 @@ mainTests extends DriverSingleton {
 //        infoPage.paymentButtonAndClick();
 //    }
 
-//     @AfterClass
-//   public static void tearDown() throws InterruptedException {
+    @AfterClass
+
+  public static void tearDown() throws InterruptedException {
+        test.log(Status.INFO, "@AfterClass");
+        extent.flush();
 //        driver.quit();
-//    }
+  }
+
 }
+
+

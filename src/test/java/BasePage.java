@@ -8,6 +8,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.io.File;
 import java.io.IOException;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -15,12 +17,9 @@ import org.apache.commons.io.FileUtils;
 
 public class BasePage extends constants {
 
-    // create the report object, path and name
-    private static ExtentReports extent= new ExtentReports();
-    private static ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
-
     private static ChromeDriver driver;
-
+    private static ExtentReports extent= new ExtentReports();
+    private static ExtentTest test = extent.createTest("BuyMeSanityTests", "Description");
 
 
     public WebElement findReqElement(By locator) throws Exception {
@@ -47,29 +46,18 @@ public class BasePage extends constants {
     }
     // Get Web Element
     private WebElement getWebElement(By locator) throws Exception {
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(XmlReader.getData("reportPath"));
-        extent.attachReporter(htmlReporter);
+        WebDriver driver = DriverSingleton.getDriverInstance();
         try {
-            return DriverSingleton.getDriverInstance().findElement(locator);
-
+            WebElement webElement = driver.findElement(locator);
+            return webElement;
         } catch (NoSuchElementException e) {
+            test.fail("details", MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenShot.takeScreenShot(driver, "C:\\Users\\97252\\IdeaProjects\\BuyMeSanityTest\\picName")).build());
             e.printStackTrace();
-            String timeNow = String.valueOf(System.currentTimeMillis());
-            test.log(Status.FAIL, "Cant Find Element",MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(timeNow)).build());
-            return DriverSingleton.getDriverInstance().findElement(locator);
-        }
+            throw new Exception(e.getMessage());
 
-    }
-
-    private static String takeScreenShot(String ImagesPath) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File screenShotFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destinationFile = new File(ImagesPath + ".png");
-        try {
-            FileUtils.copyFile(screenShotFile, destinationFile);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
-        return ImagesPath + ".png";
     }
 }
+
+
+
