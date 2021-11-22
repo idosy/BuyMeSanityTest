@@ -17,13 +17,13 @@ public class BusinessPage extends BasePage{
 
     }
     public void pickBusiness() throws Exception {
-        clickElement(By.id("ember1366"));
+        clickElement(By.cssSelector("div[class='bottom']"));
     }
     public void enterPrice() throws Exception {
-        sendKeysToElement(By.id("ember1479"),enterPrice);
+        sendKeysToElement(By.cssSelector("input[placeholder='הכנס סכום']"),enterPrice);
     }
     public void clickEnterPriceButton() throws Exception {
-       clickElement(By.id("ember1487"));
+       clickElement(By.cssSelector("button[gtm='בחירה']"));
     }
 
 

@@ -13,6 +13,7 @@ public class HomePage extends BasePage{
 
     private WebDriver driver;
    private static WebDriverWait wait;
+    private static List<WebElement> locatorElementList ;
 
     public HomePage(WebDriver driver){this.driver = driver;}
 
@@ -27,18 +28,20 @@ public class HomePage extends BasePage{
     public void selectPrice() throws Exception {
         clickElement(By.linkText("סכום"));
         List<WebElement> elementList = driver.findElements(By.className("active-result"));
-        elementList.get(2).click();
+        elementList.get(1).click();
     }
     public void selectRegion() throws Exception{
         clickElement(By.linkText("אזור"));
-        clickElement(By.cssSelector("option[value='1']"));
+        List<WebElement> elementList = driver.findElements(By.className("active-result"));
+        elementList.get(1).click();clickElement(By.cssSelector("option[value='1']"));
     }
     public void selectCategory()throws Exception{
         clickElement(By.linkText("קטגוריה"));
-        clickElement(By.cssSelector("option[value='1']"));
+        List<WebElement> elementList = driver.findElements(By.className("active-result"));
+        elementList.get(1).click();clickElement(By.cssSelector("option[value='1']"));
     }
     public void pressFindMy() throws Exception {
-        clickElement(By.className("ui-btn search ember-view"));
+        clickElement(By.linkText("תמצאו לי מתנה"));
     }
 
 

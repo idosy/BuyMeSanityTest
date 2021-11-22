@@ -58,24 +58,19 @@ mainTests extends DriverSingleton {
 //Home Screen tests
   @Test
   public void test06_pickPrice() throws Exception {
-//
       homePage = new HomePage(driver);
       //this method is for existing user
       homePage.doLogin();
       homePage.selectPrice();
 }
-//    @Test
-//    public void test07_pickRegion() throws Exception {
-//        homePage.selectRegion();
-//    }
-//    @Test
-//    public void test08_pickCategory() throws Exception {
-//        homePage.selectCategory();
-//        }
     @Test
-    public void test09_pressFindMy() throws Exception{
-        homePage.pressFindMy();
-    }
+    public void test07_pickRegion() throws Exception {homePage.selectRegion();}
+
+    @Test
+    public void test08_pickCategory() throws Exception {homePage.selectCategory();}
+
+    @Test
+    public void test09_pressFindMy() throws Exception{homePage.pressFindMy();}
 
 ////Pick business Screen tests
 //    @Test
@@ -94,11 +89,12 @@ mainTests extends DriverSingleton {
 //        businessPage.enterPrice();
 //        businessPage.clickEnterPriceButton();
 //    }
-//
+
 ////Sender and Receiver Screen tests
 //    @Test
 //    public void test13_someoneElseButtonAndClick () throws Exception {
 //        infoPage = new SenderAndReceiverInfoPage(driver);
+//        driver.get(XmlReader.getData("Url",2));
 //        infoPage.someoneElseButtonAndClick();
 //    }
 //    @Test
@@ -139,7 +135,7 @@ mainTests extends DriverSingleton {
 //    public void test22_paymentButtonAndClick() throws Exception {
 //        infoPage.paymentButtonAndClick();
 //    }
-//
+
 //     @AfterClass
 //   public static void tearDown() throws InterruptedException {
 //        driver.quit();
