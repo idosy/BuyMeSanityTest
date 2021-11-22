@@ -13,28 +13,28 @@ public class SignOnAndRegistrationPage extends BasePage {
 
     public SignOnAndRegistrationPage(WebDriver driver){this.driver = driver;}
 
-    public void SignOnLoginButtonAndClick() throws Exception{clickElement(By.className("seperator-link"));}
+    public void SignOnLoginButtonAndClick() throws Exception{clickElement(By.className(signOnLoginButton));}
 
     public void registrationButtonAndClick() throws Exception{clickElement(By.cssSelector("div.register-or-login > span"));}
 
-    public void inputFirstName() throws Exception{sendKeysToElement(By.id("ember1482"),inputFirstName);}
+    public void inputFirstName() throws Exception{sendKeysToElement(By.cssSelector(firstNameLocator),inputFirstName);}
 
-    public void inputEmailAddress() throws Exception{sendKeysToElement(By.id("ember1485"),inputEmailAddress);}
+    public void inputEmailAddress() throws Exception{sendKeysToElement(By.cssSelector(emailLocator),inputEmailAddress);}
 
-    public void inputPassword() throws Exception{sendKeysToElement(By.id("valPass"),inputPassword);}
+    public void inputPassword() throws Exception{sendKeysToElement(By.cssSelector(passwordLocator),inputPassword);}
 
-    public void inputValidationPassword() throws Exception {sendKeysToElement(By.id("ember1490"),inputPassword);}
+    public void inputValidationPassword() throws Exception {sendKeysToElement(By.cssSelector(passwordValLocator),inputPassword);}
 
     public void assertAllFields() throws Exception {
-        assertElement(By.id("ember1482"),"value",inputFirstName);
-        assertElement(By.id("ember1485"),"value",inputEmailAddress);
+        assertElement(By.cssSelector(firstNameLocator),"value",inputFirstName);
+        assertElement(By.cssSelector(emailLocator),"value",inputEmailAddress);
 
         //tests will fail remark password Actual value is NULL
-        assertElement(By.id("valPass"),"value",inputPassword);
-        assertElement(By.id("ember1490"),"value",inputPassword);
+        assertElement(By.cssSelector(passwordLocator),"value",inputPassword);
+        assertElement(By.cssSelector(passwordValLocator)  ,"value",inputPassword);
 
     }
 
-    public void clickSubmitButton () throws Exception{clickElement(By.className("label"));}
+    public void clickSubmitButton () throws Exception{clickElement(By.cssSelector("button[gtm='הרשמה ל-BUYME']"));}
 
 }

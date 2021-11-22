@@ -2,5 +2,6 @@
 <config>
     <browserType>Chrome</browserType>
     <Url>https://buyme.co.il</Url>
-    <Url>https://buyme.co.il/money/17573200?price=200</Url>
+    <Url>https://buyme.co.il/search?budget=1&amp;category=337&amp;region=13</Url>
+    <reportPath>C:\\Users\\97252\\IdeaProjects\\BuyMeSanityTest</reportPath>>
 </config>

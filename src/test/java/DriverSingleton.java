@@ -13,8 +13,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 
-public class DriverSingleton {
+public class DriverSingleton{
     private static WebDriver driver;
+
 
 
     public static WebDriver getDriverInstance() throws Exception {

@@ -19,26 +19,26 @@ public class HomePage extends BasePage{
     //use this method for 'once login' tests
     public void doLogin() throws Exception {
 
-        clickElement(By.className("seperator-link"));
-        sendKeysToElement(By.id("ember1450"),inputEmailAddress);
-        sendKeysToElement(By.id("ember1454"),inputPassword);
-        clickElement(By.id("ember1471"));
+        clickElement(By.className(signOnLoginButton));
+        sendKeysToElement(By.cssSelector(emailLocator),inputEmailAddress);
+        sendKeysToElement(By.cssSelector(passwordLocator),inputPassword);
+        clickElement(By.cssSelector("button[gtm='כניסה ל-BUYME']"));
     }
     public void selectPrice() throws Exception {
-
-     clickElement(By.xpath("/html/body/div[2]/div/header/div[3]/div/form/div[1]/a/span"));
-
+        clickElement(By.linkText("סכום"));
+        List<WebElement> elementList = driver.findElements(By.className("active-result"));
+        elementList.get(2).click();
     }
     public void selectRegion() throws Exception{
-        Select regionDropDown = new Select(driver.findElement(By.id("ember1027")));
-        regionDropDown.selectByIndex(1);
+        clickElement(By.linkText("אזור"));
+        clickElement(By.cssSelector("option[value='1']"));
     }
     public void selectCategory()throws Exception{
-        Select regionDropDown = new Select(driver.findElement(By.id("ember1037")));
-        regionDropDown.selectByIndex(1);
+        clickElement(By.linkText("קטגוריה"));
+        clickElement(By.cssSelector("option[value='1']"));
     }
     public void pressFindMy() throws Exception {
-        clickElement(By.className("ember1072"));
+        clickElement(By.className("ui-btn search ember-view"));
     }
 
 
