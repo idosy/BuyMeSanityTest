@@ -1,19 +1,13 @@
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import java.io.File;
-import java.io.IOException;
-import java.util.NoSuchElementException;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.apache.commons.io.FileUtils;
 
 public class BasePage extends constants {
 
@@ -22,10 +16,6 @@ public class BasePage extends constants {
     private static ExtentTest test = extent.createTest("BuyMeSanityTests", "Description");
 
 
-    public WebElement findReqElement(By locator) throws Exception {
-       return getWebElement(locator);
-
-    }
     //Click on Element by request Locator
     public void clickElement(By locator) throws Exception {
 
@@ -57,6 +47,8 @@ public class BasePage extends constants {
 
         }
     }
+
+
 }
 
 

@@ -18,4 +18,8 @@ public class constants {
     //variables
     public final String enterPrice = "200";
     public final String pickBusinessUrl = "https://buyme.co.il/search?budget=1&category=337&region=13";
+
+    //Extras
+      //variables
+    public final String errorMessageRedPop = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
 }
