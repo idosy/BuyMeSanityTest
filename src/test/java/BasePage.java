@@ -1,4 +1,5 @@
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -40,7 +41,7 @@ public class BasePage extends constants {
             WebElement webElement = driver.findElement(locator);
             return webElement;
         } catch (NoSuchElementException e) {
-            test.fail("details", MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenShot.takeScreenShot(driver, "C:\\Users\\97252\\IdeaProjects\\BuyMeSanityTest\\picName")).build());
+            test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenShot.takeScreenShot(driver, "C:\\Users\\97252\\IdeaProjects\\BuyMeSanityTest\\picName")).build());
             e.printStackTrace();
             throw new Exception(e.getMessage());
 

@@ -60,7 +60,7 @@ mainTests extends DriverSingleton {
 
    @Test
     public void test03_FillRegistrationDetails() throws Exception {
-       loginPage.inputFirstName();extras.assertErrorFields();
+       loginPage.inputFirstName();
        loginPage.inputEmailAddress();
        loginPage.inputPassword();
        loginPage.inputValidationPassword();
