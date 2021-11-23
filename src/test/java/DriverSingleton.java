@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverSingleton{
     private static WebDriver driver;
 
-
+    //create Single Driver as shown in Xml File
     public static WebDriver getDriverInstance() throws Exception {
         if(driver == null){
             String type = XmlReader.getData("browserType");

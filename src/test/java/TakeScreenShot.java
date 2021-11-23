@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 
+//Take ScreenShot for report File Html.
 public class TakeScreenShot {
 
     public  static String takeScreenShot(WebDriver driver, String ImagesPath) {
