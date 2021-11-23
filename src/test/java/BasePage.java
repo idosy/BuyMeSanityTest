@@ -5,7 +5,6 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 
